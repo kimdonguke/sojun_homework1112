@@ -10,7 +10,7 @@ public class ResisterActivity extends AppCompatActivity {
     ArrayList<String> res_idlist;
     ArrayList<String> res_paslist;
     EditText rid,rpas;
-
+    String ridstr,rpasstr;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
