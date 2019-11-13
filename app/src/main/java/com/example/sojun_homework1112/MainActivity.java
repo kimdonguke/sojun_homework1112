@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,18 +24,31 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> idlist;
     ArrayList<String> paslist;
     Intent intent;
+    Button button;
+    TextView tv;
     int chid,chpas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        idlist=new ArrayList<String>();
+        paslist=new ArrayList<String>();
         idlist=getStringArrayPref(getApplicationContext(),"id");
         paslist=getStringArrayPref(getApplicationContext(),"pas");
        intent=new Intent(this, ResisterActivity.class);
+       //
+        button=findViewById(R.id.debug_btn);
         id=findViewById(R.id.Login_id);
         pas=findViewById(R.id.Login_pas);
         btn=findViewById(R.id.resister_btn);
         loginbtn=findViewById(R.id.Login_btn);
+        tv=findViewById(R.id.justtext);
+        //
+        if(getIntent().getStringArrayExtra("id")!=null&&getIntent().getStringExtra("pas")!=null){
+            idlist.add(getIntent().getStringExtra("id"));
+            paslist.add(getIntent().getStringExtra("pas"));
+        }
+        //
        btn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -44,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
        loginbtn.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
+               Toast.makeText(MainActivity.this, "login btn is pressed", Toast.LENGTH_SHORT).show();
                idstr=id.getText().toString();
                passtr=pas.getText().toString();
                if(idlist.contains(idstr)){
@@ -68,9 +83,20 @@ public class MainActivity extends AppCompatActivity {
                    Toast.makeText(MainActivity.this, "일치하는 id가 없습니다", Toast.LENGTH_SHORT).show();
                }
                else{
-
+                   Toast.makeText(MainActivity.this, "시발 로그인 성공!", Toast.LENGTH_SHORT).show();
                }
+           }
+       });
+       //
+       button.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               for (int index = 0; index < idlist.size(); index++) {
 
+                   String idstring =idlist.get(index);
+                   String passtring=paslist.get(index);
+                   tv.setText(tv.getText().toString()+"//"+idstring+" "+passtring);
+               }
            }
        });
     }
