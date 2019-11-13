@@ -5,13 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        android:id="@+id/justtext"
-        />
+
 <EditText
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -50,13 +44,6 @@
         app:layout_constraintRight_toRightOf="parent"
         android:id="@+id/Login_btn"
         />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="tlqkf"
-        app:layout_constraintLeft_toLeftOf="@+id/resister_btn"
-        app:layout_constraintTop_toBottomOf="@+id/Login_btn"
-        android:id="@+id/debug_btn"
-        />
+
 
 </android.support.constraint.ConstraintLayout>

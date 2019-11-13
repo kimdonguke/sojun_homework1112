@@ -24,8 +24,8 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> idlist;
     ArrayList<String> paslist;
     Intent intent;
-    Button button;
-    TextView tv;
+    //Button button;
+    //TextView tv;
     int chid,chpas;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,12 +37,12 @@ public class MainActivity extends AppCompatActivity {
         paslist=getStringArrayPref(getApplicationContext(),"pas");
        intent=new Intent(this, ResisterActivity.class);
        //
-        button=findViewById(R.id.debug_btn);
+        //button=findViewById(R.id.debug_btn);
         id=findViewById(R.id.Login_id);
         pas=findViewById(R.id.Login_pas);
         btn=findViewById(R.id.resister_btn);
         loginbtn=findViewById(R.id.Login_btn);
-        tv=findViewById(R.id.justtext);
+        //tv=findViewById(R.id.justtext);
         //
         if(getIntent().getStringArrayExtra("id")!=null&&getIntent().getStringExtra("pas")!=null){
             idlist.add(getIntent().getStringExtra("id"));
@@ -88,17 +88,17 @@ public class MainActivity extends AppCompatActivity {
            }
        });
        //
-       button.setOnClickListener(new View.OnClickListener() {
-           @Override
-           public void onClick(View v) {
-               for (int index = 0; index < idlist.size(); index++) {
-
-                   String idstring =idlist.get(index);
-                   String passtring=paslist.get(index);
-                   tv.setText(tv.getText().toString()+"//"+idstring+" "+passtring);
-               }
-           }
-       });
+//       button.setOnClickListener(new View.OnClickListener() {
+//           @Override
+//           public void onClick(View v) {
+//               for (int index = 0; index < idlist.size(); index++) {
+//
+//                   String idstring =idlist.get(index);
+//                   String passtring=paslist.get(index);
+//                   tv.setText(tv.getText().toString()+"//"+idstring+" "+passtring);
+//               }
+//           }
+//       });
     }
     private ArrayList<String> getStringArrayPref(Context context, String key) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
