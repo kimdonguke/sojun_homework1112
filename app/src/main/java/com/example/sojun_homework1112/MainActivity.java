@@ -83,6 +83,9 @@ public class MainActivity extends AppCompatActivity {
                    Toast.makeText(MainActivity.this, "일치하는 id가 없습니다", Toast.LENGTH_SHORT).show();
                }
                else{
+                   Intent intent=new Intent(MainActivity.this, entered.class);
+                   intent.putExtra("id",idstr);
+                   startActivity(intent);
                    Toast.makeText(MainActivity.this, "시발 로그인 성공!", Toast.LENGTH_SHORT).show();
                }
            }
