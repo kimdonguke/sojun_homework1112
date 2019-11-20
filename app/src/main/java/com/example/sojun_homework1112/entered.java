@@ -12,6 +12,7 @@ public class entered extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_entered);
         String string=getIntent().getStringExtra("id");
+        tv=findViewById(R.id.idtext_logined);
         tv.setText(string);
 
     }
